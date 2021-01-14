@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #animate{
+            width:30px;
+            height:30px;
+            position: absolute;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id='animate'>
+        </div>
+        <script>
+                var tops = 0;
+    var element = document.getElementById('animate');
+    //回调函数
+    function render() {
+        tops += 1;
+        element.style.top = tops + 'px';
+        if (tops < 100) {
+            //递归渲染
+            window.requestAnimationFrame(render);
+        }
+    }
+
+    //第一帧渲染
+    window.requestAnimationFrame(render);
+        </script>
+    </div>
+</body>
+</html>
